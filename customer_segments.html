@@ -12005,7 +12005,7 @@ IJ1tIiLiQApvEREHUniLiDiQwltExIH+Px5+UBPPattUAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[589]:</div>
+<div class="prompt input_prompt">In&nbsp;[608]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display a description of the dataset</span>
@@ -14123,7 +14123,7 @@ Ny7+WPF7swAAAABJRU5ErkJggg==
 <p>Yes, Detergent_papers and grocery has correlation. Milk has correlation with grocery, thus with detergents too. The correlation is because there is kind of line on their corresponding scatter plots. The data is not normally distributed for each feature.
 The data for Grocery confirm correlation with R^2 from previous results, but has minor/no correlations with other items.</p>
 <p>What type of skewness can you observe from the diagonal elements?
-For Milk/Grocery, Detergent/Grocery the skewness is symmetric.</p>
+The diagonal elements are positively skewed.</p>
 
 </div>
 </div>
@@ -17993,7 +17993,36 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[595]:</div>
+<div class="prompt input_prompt">In&nbsp;[607]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[607]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(440, 6)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[606]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">outliers_1D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -23184,7 +23213,7 @@ PC4: When delicatessen are purchased, then there is anticorellation with Frozen 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The advantage of k-means is that only knowing the number of clusters k, the big data can be quickly clusterized, e.g. labeled. The advantage of GMM that it computes probabilities for each sample as it is an estimation algorithm, however its not scalable as k-means and works slower. Because we have many dimensions I have chosen k-means as faster algorithm.</p>
+<p>The advantage of k-means is that only knowing the number of clusters k, the big data can be quickly clusterized, e.g. labeled. The advantage of GMM that it computes probabilities for each sample as it is an estimation algorithm, however its not scalable as k-means and works slower. Because we have many dimensions I have chosen k-means as faster algorithm. k-means  does not rely on the assumption of Gaussian distribution of the data.</p>
 
 </div>
 </div>
@@ -24291,7 +24320,10 @@ Sample point 2 predicted to be in Cluster 1
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Prediction are consistent because the cluster centroid of Segment 1(cluster 0) and its percentile(25-75) values cover 2 points 0 and 2, while Segment 0 (cluster 1) has only one point sample 1</p>
+<p>Prediction are consistent because the cluster centroid of Segment 1(cluster 0) and its percentile(25-75) values cover 2 points 0 and 2, while Segment 0 (cluster 1) has only one point sample 1.
+The segment 0 is categorized by an extremely below average Milk, Grocery, Detergents_Paper, and Delicatessen spending, with a median/average spending for Fresh and Frozen. This could be places reliant on food service, such as restaurants and cafe’s.
+The segment 1 is categorized by an extremely high Grocery, Detergents_Paper, Milk spending with a below median/average spending for Fresh and Frozen and average Delicatessen spendings. This could be places reliant on supermakets.</p>
+<p>The cluster representation and samples are in agreement with each other because the spending patterns are in a good agreement and has similarity.</p>
 
 </div>
 </div>
